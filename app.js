@@ -14,7 +14,7 @@ updateScroll();
 const sections = [...document.querySelectorAll('main > section')];
 if ('IntersectionObserver' in window) { const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (!entry.isIntersecting) return; nav.querySelectorAll('a').forEach(link => { if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); }); }); }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 }); sections.forEach(section => observer.observe(section)); }
 
-const portraitSections = [document.querySelector('#profil'), document.querySelector('#contact')];
+const portraitSections = [document.querySelector('#contact')];
 function updatePortraitVisibility() {
   const middle = window.innerHeight / 2;
   const visible = portraitSections.some(section => {
