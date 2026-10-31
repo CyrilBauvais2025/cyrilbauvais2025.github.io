@@ -210,7 +210,7 @@ html { scroll-snap-type: y mandatory; scroll-padding-top: 0; }
 /* Keep the two image layers aligned at every viewport size. */
 .backdrop img { object-position: center center; filter: none; transform: none; }
 
-/* The room remains still while the portrait fades in on the last two chapters. */
+/* The room remains still. */
 .backdrop img { position: absolute; inset: 0; }
 .backdrop .mesh-layer {
   --mesh-x: -500px;
@@ -223,16 +223,8 @@ html { scroll-snap-type: y mandatory; scroll-padding-top: 0; }
   transition: opacity .25s ease;
 }
 .backdrop.mesh-active .mesh-layer { opacity: 1; }
-.backdrop .portrait-layer {
-  opacity: 0;
-  transform: scale(.9);
-  transform-origin: right bottom;
-  filter: brightness(.84) contrast(.9) saturate(.82);
-  transition: opacity 1.15s ease;
-}
-.portrait-visible .backdrop .portrait-layer { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
-  .backdrop .portrait-layer, .backdrop .mesh-layer { transition: none; }
+  .backdrop .mesh-layer { transition: none; }
   .screen-next .screen-next-arrow { animation: none; opacity: 1; }
 }
 
@@ -302,7 +294,6 @@ html { scroll-snap-type: y mandatory; scroll-padding-top: 0; }
   0%, 100% { opacity: .55; }
   50% { opacity: 1; }
 }
-.backdrop .portrait-layer { filter: none; }
 @media (prefers-reduced-motion: reduce) {
   #profil .profile-detail > summary .disclosure-icon { animation: none; opacity: 1; }
 }
